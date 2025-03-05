@@ -1,0 +1,45 @@
+name: Deploy to AWS CodeArtifact
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    paths:
+      - "**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel twine
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1 
+
+      - name: Authenticate to AWS CodeArtifact
+        run: aws codeartifact login --tool twine --domain stock-analyser --domain-owner 108782078484 --repository stock_analyser_lib
+
+
+      - name: Build package
+        run: python setup.py bdist_wheel
+
+      - name: Publish to AWS CodeArtifact
+        run: twine upload --repository codeartifact dist/*

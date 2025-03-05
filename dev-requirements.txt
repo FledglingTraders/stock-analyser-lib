@@ -1,0 +1,10 @@
+-e .
+pytest
+pytest-mock
+pytest-cov
+flake8
+mypy
+black
+flake8
+mypy
+black

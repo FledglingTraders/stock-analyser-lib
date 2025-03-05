@@ -1,0 +1,25 @@
+# Ignore Python cache
+__pycache__/
+*/__pycache__/*
+*.pyc
+stock_analyser_lib/models/__pycache__/*
+
+# Ignore config file containing sensitive data
+config.json
+
+# Ignore virtual environments (if applicable)
+venv/
+.env
+
+# Ignore logs and temp files
+logs/
+*.log
+logs/*
+*.logs
+
+# Ignore build files
+build/
+dist/
+*.egg-info/
+*.egg
+*.egg-info
