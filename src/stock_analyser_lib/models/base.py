@@ -3,8 +3,7 @@ import logging
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session, declarative_base
 
-
-from src.models.settings import FINANCIAL_DATA_DB, FINANCIAL_DATA_DB_SCHEMA
+from stock_analyser_lib.models.settings import FINANCIAL_DATA_DB, FINANCIAL_DATA_DB_SCHEMA
 
 
 engine = create_engine(FINANCIAL_DATA_DB, pool_pre_ping=True)

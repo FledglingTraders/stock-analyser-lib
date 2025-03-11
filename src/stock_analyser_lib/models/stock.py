@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String, DECIMAL
 from sqlalchemy.orm import relationship
 
-from src.models.base import BaseModel
-from src.enums.entity import Entity  # Importing Entity from entity.py
+from stock_analyser_lib.models.base import BaseModel
+from stock_analyser_lib.enums.entity import Entity  # Importing Entity from entity.py
 
 
 class Stock(BaseModel):

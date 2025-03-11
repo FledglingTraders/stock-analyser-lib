@@ -1,9 +1,9 @@
 import pytest
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
-from src.models.base import Base as RealBase
-from src.models.stock import Stock
-from src.models.historical_data import HistoricalData
+from stock_analyser_lib.models.base import Base as RealBase
+from stock_analyser_lib.models.stock import Stock
+from stock_analyser_lib.models.historical_data import HistoricalData
 
 # Create a new Base for testing without schema
 from sqlalchemy.orm import declarative_base

@@ -1,8 +1,8 @@
 import pytest
 from datetime import datetime
 
-from src.repositories.historical_data_repo import HistoricalDataRepository
-from src.models.historical_data import HistoricalData
+from stock_analyser_lib.repositories.historical_data_repo import HistoricalDataRepository
+from stock_analyser_lib.models.historical_data import HistoricalData
 
 @pytest.fixture
 def sample_historical_data():
